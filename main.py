@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-# Word bank by category
+# Word bank
 word_bank = {
     "Animal": ["tiger", "zebra", "koala", "eagle", "shark", "panda", "otter", "horse", "camel", "rhino"],
     "Place": ["paris", "delhi", "tokyo", "london", "sydney", "cairo", "osaka", "berlin", "miami"],
@@ -65,26 +65,26 @@ def check_guess():
         submit_btn.config(state="disabled")
 
 # GUI setup
-root = tk.Tk()
-root.title("Guess the Word Game ")
-root.geometry("500x600")
-root.iconbitmap("Main_icon.ico")
-root.config(bg="lightgray")
+window = tk.Tk()
+window.title("Guess the Word Game ")
+window.geometry("500x600")
+window.iconbitmap("Main_icon.ico")
+window.config(bg="lightgray")
 
-tk.Label(root, text="Choose a category:", font=("Arial", 12)).pack(pady=5)
+tk.Label(window, text="Choose a category:", font=("Arial", 12)).pack(pady=5)
 category_var = tk.StringVar(value="Animal")
-tk.OptionMenu(root, category_var, *word_bank.keys()).pack()
+tk.OptionMenu(window, category_var, *word_bank.keys()).pack()
 
-tk.Button(root, text="Start Game", font=("Arial", 12), command=start_game).pack(pady=10)
+tk.Button(window, text="Start Game", font=("Arial", 12), command=start_game).pack(pady=10)
 
-tk.Label(root, text="Enter a 5-letter word:", font=("Arial", 14)).pack()
-entry = tk.Entry(root, font=("Arial", 14), justify="center", state="disabled")
+tk.Label(window, text="Enter a 5-letter word:", font=("Arial", 14)).pack()
+entry = tk.Entry(window, font=("Arial", 14), justify="center", state="disabled")
 entry.pack(pady=5)
 
-submit_btn = tk.Button(root, text="Submit", font=("Arial", 12), command=check_guess, state="disabled")
+submit_btn = tk.Button(window, text="Submit", font=("Arial", 12), command=check_guess, state="disabled")
 submit_btn.pack(pady=5)
 
-frame = tk.Frame(root)
+frame = tk.Frame(window)
 frame.pack(pady=10)
 
-root.mainloop()
+window.mainloop()
